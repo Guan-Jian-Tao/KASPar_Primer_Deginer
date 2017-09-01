@@ -419,6 +419,7 @@ sub determine_unique_primer_pairs {
 	} elsif ( ($numer_left_primer!=1) and ($numer_right_primer!=1)){
 		my @left_candiates;
 		my @other_chrs;
+		my $index = 0;
 		foreach my $left (@left_blast_out){
 			my ($seq, $sub_chr, $a, $b, $c, $d, $e, $f, $pos1, $pos2, $score1, $score2, $g, $h) = split /\t/, $left;
 			my $max_dis = max (abs($pos1-$snp_pos),abs($pos2-$snp_pos));
@@ -441,8 +442,11 @@ sub determine_unique_primer_pairs {
 		}
 		if ( scalar(@left_candiates) == 1 ){
 			push @pairs, @left_candiates;
+		} else {
+			$index=1;
 		}
 		foreach my $seq (keys %right_candiates){
+				next if $index==1;
 				if ((scalar(@{$right_candiates{$seq}}) == 1) and (! &search($right_chrs{$seq},@other_chrs)) ){
 					my ($seq, $sub_chr, $a, $b, $c, $d, $e, $f, $pos1, $pos2, $score1, $score2, $g, $h) = split /\t/, ${$right_candiates{$seq}}[0];
 					my $max_dis = max (abs($pos1-$snp_pos),abs($pos2-$snp_pos));my $min_dis = min (abs($pos1-$snp_pos),abs($pos2-$snp_pos));
