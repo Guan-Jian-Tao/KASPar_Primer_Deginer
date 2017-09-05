@@ -31,7 +31,7 @@ Output:
 
 The KASPar primers consist of a allele-specific forward primer and a common reverse primer. The forward and reverse primers are both designed using the software Primer3. After that, the competitive primers (maybe forward or reverse)   are selected according to the 3' end position. And then, the forward and reverse primers were botn aligned to the reference genome by use of blast+, and only the unique pairs (at least one is unique) were picked in the last. The suggestive parameter for Primer3 and blast can be found in the configure file here.
 
-The factor that were considered:
+The factors that were considered:
 >1. GC content: 45%-60% <br>
 >2. Tm (melting temperatue): 50-60); Tm difference between forward and reverse primer < 5 <br>
 >3. mismatch number < 3 <br>
@@ -39,4 +39,5 @@ The factor that were considered:
 >5. Product size (including primer length): 150-200 bp
 >6. Unique hits <br>
 >7. No hairpin  <br>
->8. No self-dimer and cross-dimer (no more than 4 consective bases complementary pairing) 
+>8. No self-dimer and cross-dimer (no more than 4 consective bases complementary pairing) <br>
+>9. No other SNP faaling on the primer sequence
