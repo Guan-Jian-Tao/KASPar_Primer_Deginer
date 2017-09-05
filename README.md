@@ -27,9 +27,15 @@ Output:
 ![Result](Output.png)
 
 
+**Competitive_Side:** Forward or Reverse. The DNA Starnd Side on which the competitive primers are designed <br>
+
+
+
 **Method:**
 
 The KASPar primers consist of a allele-specific forward primer and a common reverse primer. The forward and reverse primers are both designed using the software Primer3. After that, the competitive primers (maybe forward or reverse)   are selected according to the 3' end position. And then, the forward and reverse primers were botn aligned to the reference genome by use of blast+, and only the unique pairs (at least one is unique) were picked in the last. The suggestive parameter for Primer3 and blast can be found in the configure file here.
+
+![Result](KASPar.png)
 
 The factors that were considered:
 >1. GC content: 45%-60% <br>
@@ -40,4 +46,4 @@ The factors that were considered:
 >6. Unique hits <br>
 >7. No hairpin  <br>
 >8. No self-dimer and cross-dimer (no more than 4 consective bases complementary pairing) <br>
->9. No other SNP faaling on the primer sequence
+>9. No other SNP falling on the primer sequence
